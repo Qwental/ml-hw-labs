@@ -5,11 +5,10 @@ def find_best_split(feature_vector: np.ndarray, target_vector: np.ndarray):
     """
     Находит оптимальный порог для разбиения вектора признака по критерию Джини.
     """
-    # sort index 
+    # сортируем индексы для упорядочивания данных
     idx = np.argsort(feature_vector)
     f_sorted = feature_vector[idx]
     t_sorted = target_vector[idx]
-    
     
     unique_feats, unique_idx = np.unique(f_sorted, return_index=True)
     
@@ -45,7 +44,7 @@ def find_best_split(feature_vector: np.ndarray, target_vector: np.ndarray):
 
 class DecisionTree:
     def __init__(self, feature_types, max_depth=None, min_samples_split=None, min_samples_leaf=None):
-        # validate feature types loop
+        # валидация типов признаков
         for ft in feature_types:
             if ft != "real" and ft != "categorical":
                 raise ValueError("There is unknown feature type")
@@ -62,13 +61,13 @@ class DecisionTree:
             node["class"] = sub_y[0]
             return
 
-        # check recursion depth limit
+        # проверка глубины рекурсии
         if self._max_depth is not None and depth >= self._max_depth:
             node["type"] = "terminal"
             node["class"] = Counter(sub_y).most_common(1)[0][0]
             return
         
-        # proverka na min 
+        # проверка минимального размера выборки
         if self._min_split is not None and len(sub_y) < self._min_split:
             node["type"] = "terminal"
             node["class"] = Counter(sub_y).most_common(1)[0][0]
@@ -91,21 +90,25 @@ class DecisionTree:
                 ratio = {}
                 for k, cnt in counts.items():
                     clk = clicks[k] if k in clicks else 0
-                    ratio[k] = cnt / clk 
+                    # fix division by zero here
+                    if clk == 0:
+                        ratio[k] = float('inf')
+                    else:
+                        ratio[k] = cnt / clk
                 
-                # sort map by values
+                # сортировка по значению
                 sorted_cats = sorted(ratio.items(), key=lambda item: item[1])
                 sorted_keys = [x[0] for x in sorted_cats]
                 
-                # create index map
+                # создание мапы индексов
                 cat_map = {k: idx for idx, k in enumerate(sorted_keys)}
                 
-                # transform vector via map
+                # трансформация вектора
                 f_vec = np.array([cat_map[x] for x in sub_X[:, i]])
             else:
                 raise ValueError
 
-            # check unique values count
+            # проверка уникальных значений
             if len(np.unique(f_vec)) < 2:
                 continue
 
@@ -114,7 +117,7 @@ class DecisionTree:
             if gini is None: 
                 continue
 
-            # check min samples leaf constraint
+            # проверка минимального размера листа
             curr_split = f_vec < thr
             if self._min_leaf is not None:
                 if np.sum(curr_split) < self._min_leaf or np.sum(~curr_split) < self._min_leaf:
@@ -149,7 +152,7 @@ class DecisionTree:
 
         node["left_child"], node["right_child"] = {}, {}
         
-        # recursivniy vyzov dlya postroeniya dereva
+        # рекурсивный вызов построения потомков
         self._fit_node(sub_X[best_split], sub_y[best_split], node["left_child"], depth + 1)
         self._fit_node(sub_X[~best_split], sub_y[~best_split], node["right_child"], depth + 1)
 
@@ -166,7 +169,7 @@ class DecisionTree:
             else:
                 return self._predict_node(x, node["right_child"])
         else: 
-            # categorical branch
+            # ветка категориальных признаков
             if x[idx] in node["categories_split"]:
                  return self._predict_node(x, node["left_child"])
             else:
@@ -176,9 +179,8 @@ class DecisionTree:
         self._fit_node(X, y, self._tree)
 
     def predict(self, X):
-        # vydelenie pamyati pod masiv
         predicted = []
-        # loop through all samples
+        # цикл по всем сэмплам
         for i in range(len(X)):
             predicted.append(self._predict_node(X[i], self._tree))
         return np.array(predicted)
