@@ -6,6 +6,7 @@ from matplotlib.colors import ListedColormap
 import seaborn as sns
 import numpy as np
 
+# Функция для отрисовки
 def plot_surface(clf, X, y):
     step = 0.01
     n_classes = len(np.unique(y))
@@ -26,13 +27,11 @@ def plot_surface(clf, X, y):
     plt.tight_layout(h_pad=0.5, w_pad=0.5, pad=2.5)
     plt.contourf(xx, yy, Z, cmap=cmap, alpha=0.3)
     
-
     pt_colors = np.array(pal)[y]
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap, alpha=0.7,
                 edgecolors=pt_colors, linewidths=2)
 
-
-# changing max_depth
+# --- Эксперимент 1: Изменение max_depth ---
 
 d_params = [1, 3, 5, None] 
 n_rows = len(d_params)
@@ -72,7 +71,7 @@ plt.suptitle("Зависимость от max_depth", fontsize=16, y=1.02)
 plt.show()
 
 
-# changing min_samples_leaf
+# --- Эксперимент 2: Изменение min_samples_leaf ---
 
 l_params = [1, 5, 20]
 n_rows = len(l_params)
