@@ -49,16 +49,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# ============================================================================
-# Jupyter Notebook
-# ============================================================================
 
-.ipynb_checkpoints
-*/.ipynb_checkpoints/*
-**/.ipynb_checkpoints/
-
-# Jupyter Notebook metadata
-.ipynb_checkpoints/
 
 # ============================================================================
 # Virtual Environments
@@ -10187,3 +10178,37 @@ dmypy.json
 .venv311/lib/python3.11/site-packages/plotly-6.5.0.dist-info/top_level.txt
 .venv311/lib/python3.11/site-packages/plotly-6.5.0.dist-info/WHEEL
 .venv311/lib/python3.11/site-packages/plotly-6.5.0.dist-info/licenses/LICENSE.txt
+hw3/UCI HAR Dataset/activity_labels.txt
+hw3/UCI HAR Dataset/features_info.txt
+hw3/UCI HAR Dataset/features.txt
+hw3/UCI HAR Dataset/README.txt
+hw3/UCI HAR Dataset/test/subject_test.txt
+hw3/UCI HAR Dataset/test/X_test.txt
+hw3/UCI HAR Dataset/test/y_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/body_acc_y_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/body_acc_z_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/body_gyro_x_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/body_gyro_y_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/body_gyro_z_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/total_acc_x_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/total_acc_y_test.txt
+hw3/UCI HAR Dataset/test/Inertial Signals/total_acc_z_test.txt
+hw3/UCI HAR Dataset/train/subject_train.txt
+hw3/UCI HAR Dataset/train/X_train.txt
+hw3/UCI HAR Dataset/train/y_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/body_acc_x_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/body_acc_y_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/body_acc_z_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/body_gyro_x_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/body_gyro_y_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/body_gyro_z_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/total_acc_x_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt
+hw3/UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt
+lab2/catboost_info/catboost_training.json
+lab2/catboost_info/learn/events.out.tfevents
+lab2/catboost_info/test/events.out.tfevents
+lab1.py
+.gitignore
+.gitignore
