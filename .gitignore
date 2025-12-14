@@ -1,0 +1,184 @@
+# ============================================================================
+# Python
+# ============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# ============================================================================
+# Jupyter Notebook
+# ============================================================================
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+**/.ipynb_checkpoints/
+
+# Jupyter Notebook metadata
+.ipynb_checkpoints/
+
+# ============================================================================
+# Virtual Environments
+# ============================================================================
+
+.venv/
+.venv311/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# ============================================================================
+# IDEs
+# ============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ============================================================================
+# Machine Learning Specific
+# ============================================================================
+
+# Models (слишком большие для git)
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+
+# Datasets (обычно слишком большие)
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.hdf
+*.h5
+data/
+datasets/
+!*_sample.csv  # Разрешаем sample-файлы
+
+# Checkpoints
+checkpoints/
+*.ckpt
+
+# Tensorboard logs
+logs/
+runs/
+tb_logs/
+tensorboard/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Weights & Biases
+wandb/
+
+# ============================================================================
+# macOS
+# ============================================================================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# ============================================================================
+# Environment Variables
+# ============================================================================
+
+.env
+.env.local
+.env.*.local
+
+# ============================================================================
+# Other
+# ============================================================================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Output files
+output/
+results/
+submissions/
+
+# Cache
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
