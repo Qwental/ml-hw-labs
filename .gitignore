@@ -182,3 +182,9 @@ submissions/
 .dmypy.json
 dmypy.json
 .ruff_cache/
+
+
+
+./venv/*
+./venv311/*
+./virtualenv
